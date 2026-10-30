@@ -18,10 +18,10 @@ Not used on the page: Google rating, review-only drink names (plantain latte, co
 
 | File | Use | Source | Rights |
 | --- | --- | --- | --- |
-| `ig-01-drinks` | Coffee card and a favorites photo | Cafe’s own Instagram, https://www.instagram.com/unioncafenyc/p/Derq5MOlGbD/ | Cafe’s post. Confirm they want it on the public site. Crop avoids the third-party product in the full frame. |
-| `gm-05-banquette` | Feeling card and a favorites photo | Google Maps customer upload, March 2026 | owner to confirm rights before production |
-| `gm-01-case` | Little-things card and a favorites photo | Google Maps customer upload, user Lamarana Diallo. Crop is the pastry case only. | owner to confirm rights before production |
-| `gm-03-windows` | Visit photo | Google Maps customer upload, March 2026 | owner to confirm rights before production |
+| `ig-01-drinks` | Coffee card and a favorites photo | Cafe’s own Instagram, https://www.instagram.com/unioncafenyc/p/Derq5MOlGbD/ | owner approved 2026-10-30. Crop avoids the third-party product in the full frame. |
+| `gm-05-banquette` | Feeling card and a favorites photo | Google Maps customer upload, March 2026 | owner approved 2026-10-30 |
+| `gm-01-case` | Little-things card and a favorites photo | Google Maps customer upload, user Lamarana Diallo. Crop is the pastry case only. | owner approved 2026-10-30 |
+| `gm-03-windows` | Visit photo | Google Maps customer upload, March 2026 | owner approved 2026-10-30 |
 
 Not used as main imagery, because of baked-in promo text or because they are DoorDash listing photos: `ig-03`, `ig-04`, `ig-07`, `ig-08`, `gm-04`, `gm-06`. `ig-05` and `ig-06` are the cafe’s event photos with phone-screen slogans, so they are not feature images. `gm-02` and `gm-07` were not needed once the banquette and window shots were chosen.
 

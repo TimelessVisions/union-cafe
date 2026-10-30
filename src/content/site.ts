@@ -3,8 +3,8 @@
  *
  * Address, hours, phone, email, Instagram, and the WiFi line match the
  * cafe’s Instagram bio and Google listing (see docs/PHOTO-CREDITS.md).
- * Customer-upload photos still need rights confirmation. There is no
- * owner-supplied menu.
+ * Instagram and Google Maps photos on this page were owner approved
+ * 2026-10-30. There is no owner-supplied menu.
  */
 
 export const needsOwnerConfirmation = {
@@ -15,7 +15,7 @@ export const needsOwnerConfirmation = {
   mapLink: false,
   phone: false,
   wifi: false,
-  photographyGm: true,
+  photographyGm: false,
   menu: true,
 } as const;
 
@@ -94,7 +94,7 @@ export const visitFacts = {
 } as const;
 
 export const conceptNote =
-  'DESIGN PREVIEW · Instagram photos are the cafe’s own posts. Other photos are customer uploads and need rights confirmation before production. Menu still needs the owner.';
+  'DESIGN PREVIEW · Instagram and Google Maps photos were owner approved 2026-10-30. Menu still needs the owner.';
 
 export const footer = {
   wordmark: 'UNION',

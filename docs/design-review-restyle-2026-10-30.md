@@ -11,7 +11,7 @@
 
 ## Still the owner’s call
 
-- Google Maps photos (`gm-01`, `gm-03`, `gm-05`) are on this preview and still need rights confirmation before production. Credits are in `docs/PHOTO-CREDITS.md`.
+- Instagram and Google Maps photos used here were owner approved 2026-10-30. Credits stay in `docs/PHOTO-CREDITS.md`.
 - `gm-03` shows a person seated by the window. Confirm that customer photos with people are acceptable.
 - The menu is still the three descriptive cards. No plantain latte, coquito, or date latte. A real menu can replace them later.
 - The character footer and the new sage/cream page are still two illustration languages. The footer stays until you pick one.

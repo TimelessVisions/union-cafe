@@ -20,14 +20,14 @@ describe('site content', () => {
     expect(needsOwnerConfirmation.hours).toBe(false);
     expect(needsOwnerConfirmation.phone).toBe(false);
     expect(needsOwnerConfirmation.menu).toBe(true);
-    expect(needsOwnerConfirmation.photographyGm).toBe(true);
+    expect(needsOwnerConfirmation.photographyGm).toBe(false);
     expect(visitFacts.streetLine).toBe('115 W 142nd St');
     expect(visitFacts.cityLine).toBe('New York, NY 10030');
     expect(visitFacts.hours).toBe('8 AM–6 PM');
     expect(visitFacts.phone).toBe('(212) 281-7450');
     expect(visitFacts.wifi).toBe('Yes, we have WiFi');
     expect(visitFacts.hoursNote).toMatch(/Instagram/);
-    expect(conceptNote).toMatch(/rights confirmation/);
+    expect(conceptNote).toMatch(/owner approved 2026-10-30/);
     expect(conceptNote).not.toMatch(/plantain|coquito|date latte/i);
     expect(links.instagram).toBe('https://www.instagram.com/unioncafenyc/');
     expect(links.email).toBe('unioncafenyc@gmail.com');
