@@ -6,6 +6,8 @@ This repository now has an editable React + TypeScript + Vite reconstruction of 
 
 `feat/you-me-coffee-redesign` changes only the “YOU + ME + COFFEE.” panel. The type is Anton (SIL Open Font License 1.1, `@fontsource/anton`). The crema wash is an owner-supplied photo, optimized at `public/textures/espresso-crema.jpg`. The other sections stay on the parity reconstruction.
 
+`feat/marquee-coffee-cloud` replaces the yellow marquee’s green asterisks with a crop of a painting signed MS '16, found via Cosmos (https://www.cosmos.so/e/1815613725) and credited on the pin to karenmvaz. The strip background is that painting’s sky. Usage rights are not confirmed. Do not treat this as cleared for production. See `docs/design-review-2026-10-30.md`.
+
 Production deploys only from `main`. This reconstruction lives on `feat/union-source-reconstruction` so Vercel can build a preview without touching https://union-cafe.vercel.app.
 
 ## Recovered, reconstructed, and still missing
