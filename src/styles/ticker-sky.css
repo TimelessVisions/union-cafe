@@ -1,0 +1,48 @@
+/* Marquee sky from the owner-supplied painting (MS '16, credited to karenmvaz
+   via a Cosmos/Pinterest reference). Usage rights are not confirmed.
+   Dark type is #1a120e so it clears WCAG AA on this field. */
+
+.ticker {
+  color: #1a120e;
+  background-color: #9ec4b4;
+  background-image: url('/art/cloud-coffee-sky.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  border-bottom-color: #1a120e22;
+}
+
+.ticker > div {
+  display: flex;
+  align-items: center;
+}
+
+.ticker .ticker-mark {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 22px;
+  font-size: 0;
+  line-height: 0;
+}
+
+.ticker .ticker-mark img {
+  width: auto;
+  height: 52px;
+  display: block;
+}
+
+@media (width <= 800px) {
+  .ticker {
+    padding: 6px 0;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  .ticker .ticker-mark {
+    padding: 0 12px;
+  }
+
+  .ticker .ticker-mark img {
+    height: 44px;
+  }
+}
