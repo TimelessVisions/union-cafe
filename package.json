@@ -1,17 +1,39 @@
 {
-  "name": "union-cafe-recovered-snapshot",
-  "version": "0.1.0",
+  "name": "union-cafe",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "Runnable recovery snapshot of the UNION Cafe public Vercel prototype; editable source not yet recovered",
+  "description": "Reconstructed editable source for the UNION Cafe site. The coffee-fluid and UNION footer engines are behavior-preserving ports of the recovered production bundle, not the original Work-session source.",
   "engines": {
     "node": ">=18.17"
   },
   "scripts": {
-    "dev": "node scripts/serve.mjs",
-    "build": "node scripts/build.mjs",
-    "preview": "node scripts/serve.mjs dist",
-    "test": "node scripts/check.mjs",
-    "hydrate:images": "node scripts/hydrate-images.mjs"
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.4.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2",
+    "vite": "^7.1.12",
+    "vitest": "^5.0.5"
   }
 }

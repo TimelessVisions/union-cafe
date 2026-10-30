@@ -1,0 +1,19 @@
+/* Deliberate layout containment on top of the recovered stylesheet.
+   The recovered snapshot overflows horizontally by about 7px at 320px
+   because visit-grid items refuse to shrink below their min-content size.
+   This does not restyle the cafe; it lets those grid tracks shrink. */
+
+.visit-grid,
+.visit-grid > *,
+.together,
+.together > *,
+.trio,
+.photo-card,
+.pick,
+.social-strip {
+  min-width: 0;
+}
+
+.visit-grid {
+  max-width: 100%;
+}
