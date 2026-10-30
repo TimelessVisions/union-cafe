@@ -1,0 +1,124 @@
+/* Lime poster panel. Scoped to the together art column so the copy column
+   and the rest of the page keep the recovered styles. */
+
+.together .together-art {
+  background: #d6e34a;
+  color: #14110e;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 0;
+  padding: clamp(28px, 6vw, 64px) clamp(16px, 4vw, 48px);
+  overflow: hidden;
+}
+
+.together .together-art::before,
+.together .together-art::after {
+  content: none;
+}
+
+.together .crema-wash {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(214, 227, 74, 0.2), rgba(92, 48, 18, 0.28)),
+    url('/textures/espresso-crema.jpg') center / cover no-repeat;
+  opacity: 0.28;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.together .poster,
+.together .poster-caption {
+  position: relative;
+  z-index: 1;
+}
+
+.together .poster {
+  container-type: inline-size;
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.together .poster-row {
+  position: relative;
+  height: 0.94em;
+  margin-bottom: 0.08em;
+  overflow: hidden;
+  font-family: Anton, 'Arial Narrow', Impact, sans-serif;
+  font-size: clamp(2.35rem, 14.6cqi, 6.6rem);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: 0;
+}
+
+.together .poster-word {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-52%);
+  color: #14110e;
+  white-space: nowrap;
+}
+
+.together .poster-row-start .poster-word {
+  left: 0;
+}
+
+.together .poster-row-end .poster-word {
+  right: 0;
+}
+
+.together .poster-door {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-color: #14110e;
+  background-image: url('/textures/ink-speckle.svg');
+  background-size: 150px 150px;
+  transform: scaleX(1);
+  transform-origin: right center;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--delay, 0s);
+}
+
+.together .poster-row-end .poster-door {
+  transform-origin: left center;
+}
+
+.together .together-art[data-reveal='open'] .poster-door {
+  transform: scaleX(var(--rest));
+}
+
+.together .poster-caption {
+  margin: clamp(18px, 3vw, 28px) auto 0;
+  max-width: 40rem;
+  color: #14110e;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(11px, 2.8cqi, 15px);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (width <= 800px) {
+  .together .together-art {
+    min-height: 0;
+    padding: 36px 18px 32px;
+  }
+
+  .together .together-art .poster-caption {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .together .poster-door {
+    transition: none !important;
+    transform: scaleX(var(--rest)) !important;
+  }
+}

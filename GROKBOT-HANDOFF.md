@@ -1,6 +1,6 @@
 # UNION CAFE | GROKBOT HANDOFF
 
-Status on October 30, 2026: the public site is still the recovered production deployment. Editable React/Vite source has been reconstructed on `feat/union-source-reconstruction`. Original Work-session source and prompt documents were **not** recovered. Do not treat the reconstruction as those files.
+Status on October 30, 2026: the public site is still the recovered production deployment. Editable React/Vite source has been reconstructed on `feat/union-source-reconstruction`. `feat/you-me-coffee-redesign` stacks on that branch and restyles only the together-art panel (lime field, Anton word block, owner-supplied crema wash). Original Work-session source and prompt documents were **not** recovered. Do not treat the reconstruction as those files.
 
 ## Links and verified identifiers
 

@@ -4,6 +4,8 @@
 
 This repository now has an editable React + TypeScript + Vite reconstruction of the public cafe page. It is **not** the original ChatGPT Work source tree, and it does not include the original animation prompt documents.
 
+`feat/you-me-coffee-redesign` changes only the “YOU + ME + COFFEE.” panel. The type is Anton (SIL Open Font License 1.1, `@fontsource/anton`). The crema wash is an owner-supplied photo, optimized at `public/textures/espresso-crema.jpg`. The other sections stay on the parity reconstruction.
+
 Production deploys only from `main`. This reconstruction lives on `feat/union-source-reconstruction` so Vercel can build a preview without touching https://union-cafe.vercel.app.
 
 ## Recovered, reconstructed, and still missing
