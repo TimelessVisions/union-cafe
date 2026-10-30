@@ -1,31 +1,25 @@
 /**
  * Central copy for the reconstructed UNION Cafe page.
  *
- * Strings match the recovered production snapshot so the page stays visually
- * faithful. Business facts below are NOT owner-confirmed. They are carried
- * forward from the public prototype and must be verified before an official
- * launch. Photography is illustrative and is loaded from the immutable
- * original deployment host; the JPEGs are not committed here because
- * redistribution rights are not established.
+ * Address, hours, phone, email, Instagram, and the WiFi line match the
+ * cafe’s Instagram bio and Google listing (see docs/PHOTO-CREDITS.md).
+ * Customer-upload photos still need rights confirmation. There is no
+ * owner-supplied menu.
  */
 
 export const needsOwnerConfirmation = {
-  address: true,
-  hours: true,
-  email: true,
-  instagram: true,
-  mapLink: true,
-  photography: true,
+  address: false,
+  hours: false,
+  email: false,
+  instagram: false,
+  mapLink: false,
+  phone: false,
+  wifi: false,
+  photographyGm: true,
   menu: true,
 } as const;
 
-export const imageHost = 'https://union-cafe-31ppw27i8-on-point100.vercel.app';
-
-export type PhotoName = 'coffee' | 'cafe' | 'pastry' | 'latte';
-
-export function photoSrc(name: PhotoName): string {
-  return `${imageHost}/images/${name}.jpg`;
-}
+/** TODO(owner): replace the descriptive cards with the real menu. Do not invent items. */
 
 export const links = {
   instagram: 'https://www.instagram.com/unioncafenyc/',
@@ -47,20 +41,20 @@ export const tickerParts = [
 export const photoCards = [
   {
     href: '#favorites',
-    image: 'coffee' as const,
-    alt: 'Iced coffee inspiration',
+    photo: 'drinks' as const,
+    alt: 'Iced drinks in Union Cafe cups, from the cafe’s Instagram',
     label: 'THE COFFEE ',
   },
   {
     href: '#together',
-    image: 'cafe' as const,
-    alt: 'Cafe atmosphere inspiration',
+    photo: 'banquette' as const,
+    alt: 'Banquette and tables inside Union Cafe',
     label: 'THE FEELING ',
   },
   {
     href: '#visit',
-    image: 'pastry' as const,
-    alt: 'Fresh pastry inspiration',
+    photo: 'case' as const,
+    alt: 'Pastries in the Union Cafe case',
     label: 'THE LITTLE THINGS ',
   },
 ] as const;
@@ -69,35 +63,38 @@ export const picks = [
   {
     name: 'The coffee ritual',
     tag: 'ESPRESSO & SLOW MOMENTS',
-    image: 'latte' as const,
+    photo: 'drinks' as const,
     copy: 'Your first sip. Your favorite part of the morning. Come find your coffee at Union.',
   },
   {
     name: 'Something sweet',
     tag: 'FRESH FROM THE COUNTER',
-    image: 'pastry' as const,
+    photo: 'case' as const,
     copy: 'A little treat makes a good day better. See what’s fresh at the counter today.',
   },
   {
     name: 'Make it your usual',
     tag: 'ICED, HOT, YOUR WAY',
-    image: 'coffee' as const,
+    photo: 'banquette' as const,
     copy: 'Find a seat, catch up with a friend, and stay for another sip.',
   },
 ] as const;
 
-/** Shown on the recovered site. Treat as a proposal until the owner confirms it. */
+/** Facts from the cafe’s Instagram bio and Google listing, 2026-10-30. See docs/PHOTO-CREDITS.md. */
 export const visitFacts = {
-  streetLine: '115 W 142nd Street',
+  streetLine: '115 W 142nd St',
   cityLine: 'New York, NY 10030',
   heroLocator: '115 W 142ND ST · NYC',
   days: 'Every day',
-  hours: '8:00 AM – 6:00 PM',
-  hoursNote: 'Hours from Union’s Instagram. Check before a holiday visit.',
+  hours: '8 AM–6 PM',
+  phone: '(212) 281-7450',
+  phoneHref: 'tel:+12122817450',
+  wifi: 'Yes, we have WiFi',
+  hoursNote: 'Hours from Union Cafe’s Instagram and Google listing. Check before a holiday visit.',
 } as const;
 
 export const conceptNote =
-  'DESIGN PREVIEW · Illustrative photography; replace with Union’s own photos before public launch. Menu and ordering integration pending owner details.';
+  'DESIGN PREVIEW · Instagram photos are the cafe’s own posts. Other photos are customer uploads and need rights confirmation before production. Menu still needs the owner.';
 
 export const footer = {
   wordmark: 'UNION',
