@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { links, photoSrc, picks } from '../content/site';
+import { links, picks } from '../content/site';
+import { CafeImage } from './CafeImage';
+import { LeafDoodle } from './Doodles';
 import { ArrowUpRight, Minus, Plus } from './icons';
 
 export function MenuPreview() {
@@ -9,7 +11,9 @@ export function MenuPreview() {
     <section id="favorites" className="favorites">
       <div className="section-heading">
         <div>
-          <p className="eyebrow">MEET YOUR NEXT USUAL</p>
+          <p className="eyebrow">
+            <LeafDoodle /> Meet your next usual
+          </p>
           <h2>
             Good things.
             <br />
@@ -28,11 +32,10 @@ export function MenuPreview() {
           return (
             <article key={pick.name} className="pick" data-needs-confirmation="menu">
               <div className="pick-image">
-                <img
-                  src={photoSrc(pick.image)}
-                  alt={`${pick.name} — illustrative photography`}
-                  loading="lazy"
-                  data-photo="illustrative"
+                <CafeImage
+                  id={pick.photo}
+                  alt={pick.name}
+                  sizes="(max-width: 700px) 100vw, 33vw"
                 />
                 <span className="number">0{index + 1}</span>
                 <button

@@ -5,6 +5,7 @@ import './styles/containment.css';
 import './styles/together-poster.css';
 import './styles/ticker-sky.css';
 import './styles/safe-fixes.css';
+import './styles/restyle.css';
 
 const root = document.getElementById('root');
 if (!root) {
