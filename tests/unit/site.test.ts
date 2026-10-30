@@ -3,10 +3,9 @@ import { describe, expect, it } from 'vitest';
 import {
   conceptNote,
   footer,
-  imageHost,
   links,
   needsOwnerConfirmation,
-  photoSrc,
+  photoCards,
   visitFacts,
 } from '../../src/content/site';
 
@@ -16,25 +15,23 @@ describe('site content', () => {
     expect(footer.crew).toHaveLength(5);
   });
 
-  it('marks unverified business facts for owner confirmation', () => {
-    expect(needsOwnerConfirmation.address).toBe(true);
-    expect(needsOwnerConfirmation.hours).toBe(true);
-    expect(needsOwnerConfirmation.email).toBe(true);
-    expect(needsOwnerConfirmation.instagram).toBe(true);
-    expect(needsOwnerConfirmation.mapLink).toBe(true);
-    expect(needsOwnerConfirmation.photography).toBe(true);
+  it('uses verified listing facts and still flags the menu', () => {
+    expect(needsOwnerConfirmation.address).toBe(false);
+    expect(needsOwnerConfirmation.hours).toBe(false);
+    expect(needsOwnerConfirmation.phone).toBe(false);
     expect(needsOwnerConfirmation.menu).toBe(true);
+    expect(needsOwnerConfirmation.photographyGm).toBe(true);
+    expect(visitFacts.streetLine).toBe('115 W 142nd St');
+    expect(visitFacts.cityLine).toBe('New York, NY 10030');
+    expect(visitFacts.hours).toBe('8 AM–6 PM');
+    expect(visitFacts.phone).toBe('(212) 281-7450');
+    expect(visitFacts.wifi).toBe('Yes, we have WiFi');
     expect(visitFacts.hoursNote).toMatch(/Instagram/);
-    expect(conceptNote).toMatch(/Illustrative photography/);
-    expect(conceptNote).toMatch(/pending owner details/);
-  });
-
-  it('loads illustrative photos from the immutable deployment host', () => {
-    expect(photoSrc('latte')).toBe(`${imageHost}/images/latte.jpg`);
-    expect(photoSrc('cafe')).toContain('union-cafe-31ppw27i8-on-point100.vercel.app');
+    expect(conceptNote).toMatch(/rights confirmation/);
+    expect(conceptNote).not.toMatch(/plantain|coquito|date latte/i);
     expect(links.instagram).toBe('https://www.instagram.com/unioncafenyc/');
-    expect(links.map).toBe('https://maps.app.goo.gl/oQBU6zFPd7KSW1ob9');
     expect(links.email).toBe('unioncafenyc@gmail.com');
+    expect(photoCards.map((card) => card.photo)).toEqual(['drinks', 'banquette', 'case']);
   });
 
   it('does not commit illustrative JPEGs into public/', () => {
