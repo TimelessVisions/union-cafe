@@ -1,0 +1,17 @@
+{
+  "name": "union-cafe-recovered-snapshot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Runnable recovery snapshot of the UNION Cafe public Vercel prototype; editable source not yet recovered",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs dist",
+    "test": "node scripts/check.mjs",
+    "hydrate:images": "node scripts/hydrate-images.mjs"
+  }
+}

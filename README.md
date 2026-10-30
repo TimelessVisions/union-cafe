@@ -1,34 +1,40 @@
 # UNION CAFE
 
-A concept website for Union Cafe, Harlem, New York.
+**LIVE WEBSITE:** https://union-cafe.vercel.app
 
-**Live prototype:** https://union-cafe.vercel.app
+**GROKBOT TAKEOVER:** [GROKBOT-HANDOFF.md](GROKBOT-HANDOFF.md)
 
-**Status (2026-10-30):** The public Vercel prototype is deployed, but the full editable source from the original ChatGPT Work project has **not yet been transferred** to this repository. This repository currently serves as the public handoff location. Do not assume files here reproduce the current production site until the source export is committed and verified.
+This repository contains a **runnable reconstruction of the published production build**, recovered on October 30, 2026 using the connected Vercel deployment. It is NOT the original editable React/TypeScript Vite source. The website UI, coffee-fluid animation and animated UNION footer remain in a compiled JavaScript asset; Grokbot can inspect and refactor that code, but the original source must be recovered from the earlier Work workspace for a true full transfer.
 
-## Design brief
+## Run without waiting for ChatGPT Work quota
 
-- UNION Cafe brand and editorial coffee shop experience.
-- Visual reference: https://chachamatcha.com/ for layout and interaction direction, not for copying proprietary source, assets, text, or trademarks.
-- Custom responsive design for desktop and mobile.
-- An animated footer with the letters **UNION**.
-- An interactive coffee-fluid hero animation.
-- Progressive enhancement, accessibility, reduced-motion fallback and performant mobile behavior.
-- Replace illustrative photography with licensed or cafe-owned images; confirm menu, hours, pricing, ordering information, and other business facts before treating the site as final.
+Requires Node.js 18.17 or newer. No external npm packages are needed for this snapshot.
 
-## Existing Vercel deployment
+1. git clone https://github.com/TimelessVisions/union-cafe.git
+2. cd union-cafe
+3. npm run dev
+4. Open http://localhost:5173
 
-- Project: `union-cafe` in team `on-point100`
-- Project ID: `prj_nn3yZj35E8onEbQwm0Hxq8YXEzBf`
-- Verified production deployment: `dpl_Hh7m7v1EvMHJQ7HXQt1GpQkSWHHQ`
-- Deployment inspector: https://vercel.com/on-point100/union-cafe/Hh7m7v1EvMHJQ7HXQt1GpQkSWHHQ
-- The current site uses `noindex,nofollow` until business information and assets are approved.
-- **Important:** The deployed production build does not automatically contain the editable React/Vite source. Git integration is not yet linked.
+Production-style build: npm run build and then npm run preview.
 
-## Source recovery
+Optional: npm run hydrate:images downloads four illustrative JPEGs from the immutable former production deployment into public/images and changes the bundle to use local assets. Run this in an Internet-connected computer, review image usage rights, then commit the binaries.
 
-The editable project was created in an earlier ChatGPT Work conversation, **Clone Cafe Website**. Export the directory `/workspace/sites/union-cafe` from that original Work environment. Preserve the exact original handoff output `UNION-CAFE-GROKBOT-FULL-TRANSFER` and prompts `docs/UNION-FOOTER-PROMPT.md` and `docs/COFFEE-FLUID-PROMPT.md`.
+## Known limitations
 
-Review the source for secrets, third-party image rights and unpublished business data. Commit original source, package files, tests, documentation and assets with appropriate permission. Do not mistake downloaded/minified Vercel files for editable source. Once pushed, link this repository to the existing Vercel project, verify production parity and record commit/build/test evidence.
+- JavaScript is a compiled/minified production bundle, not original maintainable source.
+- Images are currently loaded from the immutable Vercel deployment, not committed to this repository. The hydrate:images script can download them when online.
+- Original animation prompt documents and original full transfer output have not been recovered from the earlier Work session.
+- Build and structural checks are not replacements for original unit tests, Playwright checks, or approval by the cafe owner.
+- Content still includes illustrative photography and potentially unverified business details.
+- Existing page contains a noindex,nofollow robots directive. Do not turn on indexing without business approval.
+- The existing Vercel deployment was independently verified as public and serving HTTP 200; do not claim the new GitHub version is linked to Vercel until it actually is.
 
-For detailed instructions, see [GROKBOT-HANDOFF.md](./GROKBOT-HANDOFF.md).
+## Production metadata
+
+- Vercel project: union-cafe, team on-point100
+- Project ID: prj_nn3yZj35E8onEbQwm0Hxq8YXEzBf
+- Production deployment: dpl_Hh7m7v1EvMHJQ7HXQt1GpQkSWHHQ
+- Source image host: union-cafe-31ppw27i8-on-point100.vercel.app
+- Creative reference: https://chachamatcha.com/ (inspiration only, no proprietary content copying)
+
+See the handoff document for recovery, refactoring, testing and Vercel Git connection instructions.
