@@ -32,6 +32,7 @@ describe('marquee art', () => {
     expect(source).toContain('karenmvaz');
     expect(source).toContain('https://www.cosmos.so/e/1815613725');
     expect(source).toContain("MS '16");
+    expect(source).toContain('Usage cleared by owner 2026-10-30');
     expect(source).not.toContain('TEMP');
     expect(source).not.toContain('✳');
     const css = readFileSync('src/styles/ticker-sky.css', 'utf8');

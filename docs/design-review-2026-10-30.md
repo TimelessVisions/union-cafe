@@ -13,9 +13,9 @@
 
 The hero is a coffee simulation. The three cards and the favorites row are generic drink, interior, and pastry photos hosted on the old deployment. They read as stock. A visitor cannot tell this is a room on 142nd Street. Real Instagram and Maps photos are the next restyle. Do not invent stand-ins.
 
-### 2. Critical. Rights on the marquee painting
+### 2. Cleared. The marquee painting
 
-The sky and the cup crop come from a painting signed **MS '16**. The owner found it via Cosmos, https://www.cosmos.so/e/1815613725. The pin credits **karenmvaz**. That credit is not a license. Keep the art off production until the owner confirms it can be published and redistributed. The crops live at `public/art/cloud-coffee-cup.png` and `public/art/cloud-coffee-sky.jpg`.
+The sky and the cup crop come from a painting signed **MS '16**. The owner found it via Cosmos, https://www.cosmos.so/e/1815613725. The pin credits **karenmvaz**. Usage cleared by owner 2026-10-30. The crops live at `public/art/cloud-coffee-cup.png` and `public/art/cloud-coffee-sky.jpg`.
 
 ### 3. High. The page is four designs at once
 
@@ -70,7 +70,7 @@ Use it when real Union photos arrive. Per section:
 | Top bar | A short olive or ink line, or retire it if the marquee already says the refrain. | Do not add sticker labels in the bar. |
 | Header | Small lowercase italic pills for “visit” and “instagram”, ink on cream, instead of the tracked uppercase row and the outlined “Come on in” pill. The word “union” can stay the logo. It does not need a bean inside the letter. | Do not rebuild the header in this branch. |
 | Hero | A real interior or cup photo, full bleed, with the line “A little more together.” set in a cream pill. A few original ink doodles (cup, stool, street) as small cream stickers, drawn for Union, not traced from the mock. The fluid can sit behind the photo at low opacity, or move under the fold. | The fluid animation stays as it is until that photo exists. |
-| Marquee | Keep this painted sky and cup as the one borrowed artwork, rights permitting. It already plays the role of the reference’s handmade sticker rhythm. | Do not retint it to sage. The painting’s sky is teal. |
+| Marquee | Keep this painted sky and cup. Usage cleared by owner 2026-10-30. Provenance stays: Cosmos pin, author karenmvaz, signed MS '16. It already plays the role of the reference’s handmade sticker rhythm. | Do not retint it to sage. The painting’s sky is teal. |
 | Photo row | Real photos, one strong crop each, caption as a small sticker instead of a white arrow in the corner. | The three stock frames stay until replacements exist. The arrow-under-label bug is already fixed. |
 | Favorites | Sage field, one oversized condensed title (“Good things.” or the real menu name), then rows: name on the left, a short note on the right, separated by a hairline. No prices until the owner provides them. | Do not invent a menu to fill the rows. |
 | YOU + ME + COFFEE. | Keep the approved lime block and the sliding bars. It is the graphic moment. The reference’s peach scribble band is a different idea and should not replace this. | No further restyle of this panel in the CANOFEE pass. |
