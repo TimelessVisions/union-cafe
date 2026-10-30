@@ -1,0 +1,18 @@
+/* Narrow photo cards were stacking the arrow under the label, which
+   broke the row at 390px. Keep the label and arrow on one line. */
+
+@media (width <= 520px) {
+  .photo-card span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .photo-card svg {
+    width: 14px;
+    height: 14px;
+    margin-top: 0;
+    flex: none;
+  }
+}
