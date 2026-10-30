@@ -10,8 +10,14 @@ test('keyboard skip link, names, alts, and heading order', async ({ page }) => {
   const count = await images.count();
   expect(count).toBeGreaterThan(0);
   for (let index = 0; index < count; index += 1) {
-    const alt = await images.nth(index).getAttribute('alt');
-    expect(alt && alt.trim().length).toBeGreaterThan(0);
+    const image = images.nth(index);
+    const alt = await image.getAttribute('alt');
+    const decorative = (await image.locator('xpath=ancestor::div[contains(@class,"ticker")]').count()) > 0;
+    if (decorative) {
+      expect(alt).toBe('');
+    } else {
+      expect(alt && alt.trim().length).toBeGreaterThan(0);
+    }
   }
 
   const buttons = page.getByRole('button');
