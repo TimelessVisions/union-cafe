@@ -1,35 +1,84 @@
-# UNION CAFE | GROKBOT EXECUTION HANDOFF
+# UNION CAFE | GROKBOT HANDOFF
 
-Status: runnable public production snapshot recovered October 30, 2026. Editable source and original prompt documents remain to be recovered. Do not conflate the two.
+Status on October 30, 2026: the public site is still the recovered production deployment. Editable React/Vite source has been reconstructed on `feat/union-source-reconstruction`. Original Work-session source and prompt documents were **not** recovered. Do not treat the reconstruction as those files.
 
-## Links and verified account identifiers
+## Links and verified identifiers
 
 - Live site: https://union-cafe.vercel.app
 - Public code: https://github.com/TimelessVisions/union-cafe
-- Vercel project: union-cafe under on-point100
-- Vercel project ID: prj_nn3yZj35E8onEbQwm0Hxq8YXEzBf
-- Original deployed build ID: dpl_Hh7m7v1EvMHJQ7HXQt1GpQkSWHHQ
-- Immutable source deployment: https://union-cafe-31ppw27i8-on-point100.vercel.app
-- Inspector: https://vercel.com/on-point100/union-cafe/Hh7m7v1EvMHJQ7HXQt1GpQkSWHHQ
+- Snapshot tag: `recovered-production-2026-10-30` at `ba409b04187f63bbeeadc436a2fea859bd3ea753`
+- Vercel project: `union-cafe` under `on-point100`
+- Vercel project ID: `prj_nn3yZj35E8onEbQwm0Hxq8YXEzBf`
+- Production deployment kept intact: `dpl_Hh7m7v1EvMHJQ7HXQt1GpQkSWHHQ`
+- Immutable image host: https://union-cafe-31ppw27i8-on-point100.vercel.app
+- Git link: `TimelessVisions/union-cafe`, production branch `main`
+- Preview builds: pushes to a non-main branch or PR. Do not push or merge this work to `main`.
 
-## Do this now, without ChatGPT Work access
+## What each kind of material is
 
-1. Clone the GitHub repository above. Read README.md. Run npm run test, npm run build and npm run dev. Verify the page and animations in your actual browser. This uses a reconstructed published bundle, not editable original source.
-2. Run npm run hydrate:images in an Internet-connected environment. Review and commit the four illustrative JPEG assets only if their usage rights are appropriate for a public repository. This removes runtime dependency on the old Vercel deployment images.
-3. Refactor the production JavaScript in public/assets/index-CGjPMKhG.js into understandable components under src, using React/Vite or the user's preferred supported stack, preserving visual and behavioral parity. Treat decompilation as a maintenance bridge, not proof that original source files were recovered.
-4. If the user can export the original Work folder /workspace/sites/union-cafe from the previous chat named Clone Cafe Website, use that original source instead of reverse engineering. Also obtain original files UNION-FOOTER-PROMPT.md, COFFEE-FLUID-PROMPT.md and UNION-CAFE-GROKBOT-FULL-TRANSFER; do not fabricate their contents.
-5. Verify desktop and phone interactions, responsive layouts, keyboard focus, touch gestures, fluid WebGL fallback, reduced motion, performance, visible content and external links. Run Playwright where available. Record actual commands, pass/fail, screenshots and regressions, not hypothetical passes.
-6. Keep all secrets out of public GitHub. Confirm photo rights, factual business claims, menu, prices, hours, photos and any ordering information with the cafe owner. Current photos are illustrative. Do not copy Cha Cha Matcha's assets or proprietary source.
-7. Link this repo to the EXISTING Vercel project named union-cafe (team on-point100), not a duplicate project. Configure the build as npm run build with output directory dist. Verify the new production deployment is traceable to a GitHub commit and compare it with the current site before considering transfer complete. Preserve rollback ability.
-8. Keep noindex,nofollow until explicit approval for an official search-indexed launch.
-9. Report exact delivered URLs, commit SHA, screenshots/test evidence and outstanding unknowns.
+| Kind | Where it is | What it is |
+| --- | --- | --- |
+| Recovered | Tag `recovered-production-2026-10-30` and `main` at `ba409b0` | Compiled snapshot, recovery scripts, and the handoff that shipped with it |
+| Reconstructed | `src/` on `feat/union-source-reconstruction` | Editable page, content config, and a behavior-preserving motion port |
+| Unrecovered | Not in this repo | `/workspace/sites/union-cafe`, `UNION-FOOTER-PROMPT.md`, `COFFEE-FLUID-PROMPT.md` |
 
-## Site brief
+`src/motion/recoveredRuntime.js` is labeled **RECONSTRUCTED** in the file header. It preserves the compiled coffee-fluid and UNION footer behavior, including:
 
-Creative inspiration: https://chachamatcha.com/ but distinctive UNION Cafe artwork and identity, responsive editorial feel, interactive coffee-fluid animation, animated UNION wordmark/footer. The source bundle already renders these sections. Keep interaction polish, accessibility, performance and mobile parity.
+- Pointer and touch splats, with `touch-action: pan-y` unless `captureTouch` is set, so the hero does not hijack scrolling.
+- Gentle idle motion, paused when the canvas is offscreen or `document.hidden` is true.
+- `prefers-reduced-motion`: the fluid loop stops and the footer wordmark is static (`animation: none`) while the letters stay visible.
+- A 2D `.coffee-marble` canvas when WebGL2 cannot be created, including `webglcontextlost`.
 
-The original ChatGPT Work conversation reported successful mobile/desktop checks and build, but this takeover has not independently rerun them. The user wants Grokbot to continue without waiting for the Work usage limit reset.
+The cafe page calls that runtime with the live site's settings (`dissipation: 0.1`, `curl: 14`, `splatRadius: 0.65`, `quality: "medium"`, `glow: 0`, colors `#f4dfb8`, `#b77b44`, `#6b351e`, `#d8ad78`) and `wordmark: "UNION"`.
 
-## Limitations the user should know
+## Commands
 
-The bundled JS/CSS in this repository were recovered from the live deployment using Vercel; asset URLs were changed to use the immutable old deployment for images until hydration. This is a working-code transfer from a deployed build, not a transfer of the original source project. Grokbot can immediately work with the site, but a maintainable rebuild and the untouched original project require separate work.
+```bash
+npm ci
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+npx playwright install chromium
+npx playwright test
+```
+
+`npm run build` is `tsc --noEmit && vite build`. Output directory is `dist/`.
+
+Clean `npm ci` on October 30, 2026 (Node 22 locally; the Vercel project is set to Node 26):
+
+| Command | Result |
+| --- | --- |
+| `npm ci` | exit 0, 0 vulnerabilities |
+| `npm run lint` | exit 0 |
+| `npm run typecheck` | exit 0 |
+| `npm run test` | vitest 6 passed, 1 file |
+| `npm run build` | exit 0, `dist/` |
+| `npx playwright test` | 19 passed |
+
+`src/motion/recoveredRuntime.js` is eslint-ignored on purpose. It is generated-structure recovered logic, not hand-formatted application code.
+
+## Vercel settings for this project
+
+| Setting | Value |
+| --- | --- |
+| Framework | vite |
+| Install command | `npm ci --include=dev` |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Production branch | `main` |
+
+Do not create another Vercel project named `union-cafe`. Do not change production aliases. Do not turn off `noindex,nofollow` until the owner approves an official launch.
+
+## Known differences from the live snapshot
+
+- Hero screenshots will not match pixel-for-pixel. The coffee simulation keeps moving, so two captures of the same build already differ. Header, type, buttons, favorites, together, visit, and the UNION footer matched the live site at a 0.15 pixel threshold on October 30, 2026.
+- At 320px the recovered snapshot overflowed horizontally by about 7px (`scrollWidth` 327). The reconstruction sets `min-width: 0` on the tight grids in `src/styles/containment.css` so the page does not scroll sideways. That is the only intentional layout change.
+- `data-needs-confirmation` and `data-photo="illustrative"` mark unverified facts. They do not change the painted page.
+- Illustrative JPEGs stay on the old deployment host. They are not committed.
+
+## Still needs a person
+
+- Confirm or replace address, hours, email, map pin, Instagram, menu, and photos.
+- Decide whether the prototype may become the official cafe site.
+- Only then promote a reviewed commit from `main` and revisit indexing.

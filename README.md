@@ -1,40 +1,68 @@
 # UNION CAFE
 
-**LIVE WEBSITE:** https://union-cafe.vercel.app
+**Live production site (do not replace from this branch):** https://union-cafe.vercel.app
 
-**GROKBOT TAKEOVER:** [GROKBOT-HANDOFF.md](GROKBOT-HANDOFF.md)
+This repository now has an editable React + TypeScript + Vite reconstruction of the public cafe page. It is **not** the original ChatGPT Work source tree, and it does not include the original animation prompt documents.
 
-This repository contains a **runnable reconstruction of the published production build**, recovered on October 30, 2026 using the connected Vercel deployment. It is NOT the original editable React/TypeScript Vite source. The website UI, coffee-fluid animation and animated UNION footer remain in a compiled JavaScript asset; Grokbot can inspect and refactor that code, but the original source must be recovered from the earlier Work workspace for a true full transfer.
+Production deploys only from `main`. This reconstruction lives on `feat/union-source-reconstruction` so Vercel can build a preview without touching https://union-cafe.vercel.app.
 
-## Run without waiting for ChatGPT Work quota
+## Recovered, reconstructed, and still missing
 
-Requires Node.js 18.17 or newer. No external npm packages are needed for this snapshot.
+**Recovered** (preserved on `main` and the tag `recovered-production-2026-10-30`, commit `ba409b04187f63bbeeadc436a2fea859bd3ea753`):
 
-1. git clone https://github.com/TimelessVisions/union-cafe.git
-2. cd union-cafe
-3. npm run dev
-4. Open http://localhost:5173
+- The compiled production snapshot: page structure, copy, stylesheet, coffee-fluid simulation, and animated UNION footer.
+- Public links that were already on that snapshot (Instagram, Google Maps, mailto).
+- Image URLs pointing at the immutable deployment `union-cafe-31ppw27i8-on-point100.vercel.app`. The JPEGs are **not** in this repo. Redistribution rights are not established.
 
-Production-style build: npm run build and then npm run preview.
+**Reconstructed** (this branch):
 
-Optional: npm run hydrate:images downloads four illustrative JPEGs from the immutable former production deployment into public/images and changes the bundle to use local assets. Run this in an Internet-connected computer, review image usage rights, then commit the binaries.
+- Editable page components under `src/components/`.
+- Central copy and unverified-fact flags in `src/content/site.ts`.
+- `src/motion/recoveredRuntime.js`, a **RECONSTRUCTED** behavior-preserving port of the compiled footer and fluid engines. It is not original source. The page passes `wordmark: "UNION"` and the coffee settings used on the live site.
+- Lint, typecheck, unit tests, and Playwright coverage.
 
-## Known limitations
+**Unrecovered:**
 
-- JavaScript is a compiled/minified production bundle, not original maintainable source.
-- Images are currently loaded from the immutable Vercel deployment, not committed to this repository. The hydrate:images script can download them when online.
-- Original animation prompt documents and original full transfer output have not been recovered from the earlier Work session.
-- Build and structural checks are not replacements for original unit tests, Playwright checks, or approval by the cafe owner.
-- Content still includes illustrative photography and potentially unverified business details.
-- Existing page contains a noindex,nofollow robots directive. Do not turn on indexing without business approval.
-- The existing Vercel deployment was independently verified as public and serving HTTP 200; do not claim the new GitHub version is linked to Vercel until it actually is.
+- The original editable project that the Work session reported at `/workspace/sites/union-cafe`.
+- `UNION-FOOTER-PROMPT.md`, `COFFEE-FLUID-PROMPT.md`, and the original full-transfer document from that session.
+- Owner confirmation of address, hours, email, menu, and photography.
 
-## Production metadata
+If those original files show up later, compare them with this reconstruction instead of overwriting it blindly.
 
-- Vercel project: union-cafe, team on-point100
-- Project ID: prj_nn3yZj35E8onEbQwm0Hxq8YXEzBf
-- Production deployment: dpl_Hh7m7v1EvMHJQ7HXQt1GpQkSWHHQ
-- Source image host: union-cafe-31ppw27i8-on-point100.vercel.app
-- Creative reference: https://chachamatcha.com/ (inspiration only, no proprietary content copying)
+## Run locally
 
-See the handoff document for recovery, refactoring, testing and Vercel Git connection instructions.
+Node.js 18.17 or newer.
+
+```bash
+npm ci
+npm run dev        # http://127.0.0.1:5173
+npm run lint
+npm run typecheck
+npm run test       # vitest
+npm run build      # tsc --noEmit && vite build, output dist/
+npm run preview
+npx playwright install chromium
+npx playwright test
+```
+
+`noindex,nofollow` stays in `index.html` until the owner approves an official launch.
+
+## Vercel project
+
+Existing project only: `union-cafe` on team `on-point100` (`prj_nn3yZj35E8onEbQwm0Hxq8YXEzBf`). Do not create a second project and do not change the production alias.
+
+`vercel.json` for the reconstructed app:
+
+| Setting | Value |
+| --- | --- |
+| Framework | `vite` |
+| Install command | `npm ci --include=dev` |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Production branch | `main` |
+
+`--include=dev` keeps TypeScript and Vite available when the platform install runs with production npm settings. Preview deployments are created from this branch. Merging or pushing to `main` would deploy production.
+
+## Content that still needs the owner
+
+`src/content/site.ts` sets `needsOwnerConfirmation` for the address, hours, email, Instagram, map link, photography, and menu. The visible page still shows the same prototype copy as the recovered site, including the design-preview note. Nothing here is a priced menu or a confirmed set of hours.
